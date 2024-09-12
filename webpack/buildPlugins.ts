@@ -24,7 +24,7 @@ export function buildPlugins({mode, paths, analyzer, platform}: BuildOPtions): C
     if (isDev) {
         plugins.push(
             new ForkTsCheckerWebpackPlugin(), // выносит проверку типов в отдельный процесс (и вебпак быстрее собирается)
-            new ReactRefreshWebpackPlugin(), // показывает иконку прогресса
+            new ReactRefreshWebpackPlugin(), // обновление без перезагрузки
         );
     }
 
@@ -32,11 +32,11 @@ export function buildPlugins({mode, paths, analyzer, platform}: BuildOPtions): C
         plugins.push(
             new MiniCssExtractPlugin({filename: 'main.[contenthash].css'}), // выносит css в отдельный файл (иначе он собирается в bundle.js)
             new webpack.ProgressPlugin(), // показывает прогресс сборки (но замедляет сборку)
-            /* new CopyPlugin({
+            new CopyPlugin({
                 patterns: [
                   { from: path.resolve(paths.public, 'locales'), to: path.resolve(paths.output, 'locales') },
                 ],
-            }), */
+            }),
         );
     }
 
