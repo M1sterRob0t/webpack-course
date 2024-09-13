@@ -25,7 +25,7 @@ export function buildWebpack(options: BuildOPtions): Configuration {
         },
         plugins: buildPlugins(options),
         devServer: isDev ? buildDevServer(options) : undefined,
-        devtool: isDev ? 'inline-source-map' : false,
+        devtool: isDev ? 'eval-cheap-module-source-map' : false,
         watchOptions: {
             ignored: /node_modules/,
         },

@@ -38,7 +38,7 @@ export function buildLoaders({ mode }: BuildOPtions): ModuleOptions['rules'] {
               getCustomTransformers: () => ({
                 before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
               }),
-              transpileOnly: true
+              transpileOnly: true,
             }
           }
         ]

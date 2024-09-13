@@ -12,6 +12,11 @@ const Gallery = lazy(() => import('@/components/Gallery'));
 // Tree shaking - will be deleted from bundle
 function printLog() {
     console.log('TODO');
+    thorowError();
+}
+
+function thorowError() {
+    throw new Error('Erroaaaaaaargggggghhhh!');
 }
 
 const router = createBrowserRouter([
@@ -45,6 +50,7 @@ export function App() {
             <h1 className={classes.title}>Welcome to <span>my</span> app</h1>
             <h2>{counter}</h2>
             <button className={classes.button} onClick={() => setCounter(prev => ++prev)}>increase</button>
+            <button className={classes.errorButton} onClick={() => printLog()}>error</button>
             <RouterProvider router={router} />
         </div>
     )
